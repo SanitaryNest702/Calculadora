@@ -12,6 +12,7 @@ public class CalcView extends JFrame {
     //... Components
     private JTextField m_userInputTf = new JTextField(5);
     private JTextField m_totalTf     = new JTextField(20);
+    private JButton   m_sumaBtn     = new JButton("Sumar");
     private JButton    m_multiplyBtn = new JButton("Multiply");
     private JButton    m_clearBtn    = new JButton("Clear");
     private CalcModel m_model;
@@ -32,10 +33,11 @@ public class CalcView extends JFrame {
         content.add(new JLabel("Input"));
         content.add(m_userInputTf);
         content.add(m_multiplyBtn);
+        //Boton para sumar
+        content.add(m_sumaBtn);
         content.add(new JLabel("Total"));
         content.add(m_totalTf);
         content.add(m_clearBtn);
-        //Boton para sumar
         //... finalize layout
         this.setContentPane(content);
         this.pack();

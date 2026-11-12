@@ -11,6 +11,9 @@ public class CalcModel {
     //... Member variable defining state of calculator.
     private BigDecimal m_total;
 
+    private static final String INITIAL_SUMA= "0"; //0 es el valor neutro de la suma
+    private boolean m_primeraOperacion;  // The total current value state.
+
     //============================================================== constructor
     /** Constructor */
     public CalcModel() {
@@ -21,6 +24,8 @@ public class CalcModel {
     /** Reset to initial value. */
     public void reset() {
         m_total = new BigDecimal(INITIAL_VALUE);
+        //Agregar el booleano
+        m_primeraOperacion=true;
 
     }
 
@@ -30,6 +35,7 @@ public class CalcModel {
      */
     public void multiplyBy(String operand) {
         m_total = m_total.multiply(new BigDecimal(operand));
+        m_primeraOperacion=false;
 
     }
 
@@ -47,6 +53,11 @@ public class CalcModel {
     /** Return current calculator total. */
     public String getValue() {
         return m_total.toString();
+    }
+        public void addBy(String operand){
+        BigDecimal base= m_primeraOperacion ? new BigDecimal(INITIAL_SUMA): m_total;
+        m_total=base.add(new BigDecimal(operand));
+        m_primeraOperacion=false;
     }
 
 }

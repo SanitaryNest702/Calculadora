@@ -18,7 +18,7 @@ public class CalcController {
         //... Add listeners to the view.
         view.addMultiplyListener(new MultiplyListener());
         view.addClearListener(new ClearListener());
-
+        view.addSumaListener(new SumaListener());
     }
 
     ////////////////////////////////////////// inner class MultiplyListener
@@ -42,6 +42,28 @@ public class CalcController {
             }
         }
     }//end inner class MultiplyListener
+
+    //////////////////////////////////////////// inner class SumaListener
+    /** When a sum is requested.
+     *  1. Get the user input number from the View.
+     *  2. Call the model to sum by this number.
+     *  3. Get the result from the Model.
+     *  4. Tell the View to display the result.
+     * If there was an error, tell the View to display it.
+     */
+    class SumaListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            String userInput = "";
+            try {
+                userInput = m_view.getUserInput();
+                m_model.addBy(userInput);
+                m_view.setTotal(m_model.getValue());
+            } catch (NumberFormatException nfex) {
+                m_view.showError("Bad input: '" + userInput + "'");
+            }
+        }
+    }//end inner class SumaListener
+
 
     //////////////////////////////////////////// inner class ClearListener
     /**  1. Reset model.
