@@ -52,9 +52,3 @@ Cualquier operación nueva sigue estos mismos tres pasos.
 ## 7. Otros cambios sobre el ejemplo original
 - `BigInteger` se cambió a `BigDecimal` (acepta decimales).
 - `INITIAL_VALUE` del modelo se corrigió de `"0"` a `"1"` para que multiplicar funcione después de Clear.
-
-## 8. Diagrama de clases
-![Diagrama de clases](diagrama-clases-actual.png)
-
-## 9. Video
-URL: _pega aquí el enlace y verifica que abre sin iniciar sesión_
